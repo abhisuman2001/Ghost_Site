@@ -1,0 +1,15 @@
+{
+  "name": "Gravedigger",
+  "description": "Records development cycles in the Book of the Dead when 'Seal the Tomb' is invoked",
+  "trigger": {
+    "type": "manual",
+    "keywords": ["seal the tomb", "seal tomb", "close the crypt"]
+  },
+  "action": {
+    "type": "agent_message",
+    "message": "The Gravedigger has been summoned. Recording this cycle in the Book of the Dead...\n\nPlease provide:\n1. A brief description of what was built/changed\n2. Key files or features added\n\nI will inscribe this in the crypt keeper's style."
+  },
+  "enabled": true,
+  "icon": "⚰️",
+  "category": "documentation"
+}

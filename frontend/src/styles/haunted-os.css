@@ -1,0 +1,217 @@
+/* Haunted OS Global Styles */
+
+:root {
+  --purgatory-dark: #0a0a0a;
+  --purgatory-darker: #050505;
+  --ghost-green: #00ff41;
+  --ghost-green-dim: #00cc33;
+  --tombstone-gray: #2a2a2a;
+  --shadow-green: rgba(0, 255, 65, 0.5);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--purgatory-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ghost-green-dim);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ghost-green);
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px var(--ghost-green),
+               0 0 20px var(--ghost-green),
+               0 0 30px var(--ghost-green);
+}
+
+/* Flickering animation for tombstones */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.95; }
+  20% { opacity: 0.9; }
+  30% { opacity: 0.95; }
+  40% { opacity: 0.85; }
+  50% { opacity: 0.9; }
+  60% { opacity: 0.95; }
+  70% { opacity: 0.85; }
+  80% { opacity: 0.9; }
+  90% { opacity: 0.95; }
+}
+
+.flicker {
+  animation: flicker 3s infinite;
+}
+
+/* Pulsing glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--ghost-green);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--ghost-green),
+                 0 0 30px var(--ghost-green);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Scanline effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanline-effect::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(transparent, var(--ghost-green), transparent);
+  opacity: 0.1;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* CRT screen effect */
+.crt-effect {
+  position: relative;
+}
+
+.crt-effect::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Tombstone hover effect */
+.tombstone-hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tombstone-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px var(--shadow-green);
+}
+
+/* Ghost button style */
+.ghost-button {
+  background: transparent;
+  border: 2px solid var(--ghost-green);
+  color: var(--ghost-green);
+  padding: 0.75rem 1.5rem;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ghost-button:hover {
+  background: var(--ghost-green);
+  color: var(--purgatory-dark);
+  box-shadow: 0 0 20px var(--ghost-green);
+}
+
+.ghost-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  border: 3px solid var(--purgatory-darker);
+  border-top-color: var(--ghost-green);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  background: rgba(5, 5, 5, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+/* Engraved text effect for tombstones */
+.engraved-text {
+  text-shadow: 
+    1px 1px 0px rgba(0, 0, 0, 0.8),
+    -1px -1px 0px rgba(255, 255, 255, 0.1);
+  color: #888;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
